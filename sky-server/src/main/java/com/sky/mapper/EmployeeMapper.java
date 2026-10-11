@@ -30,4 +30,8 @@ public interface EmployeeMapper {
 
     //根据主键动态修改属性,用映射文件
     void update(Employee employee);
+
+    //根据id来查询
+    @Select("select * from employee where id = #{id}")
+    Employee getById(Integer id);
 }
