@@ -22,4 +22,7 @@ public interface SetmealService {
 
     //修改套餐
     void update(SetmealDTO setmealDTO);
+
+    //套餐起售、停售
+    void startOrStop(Integer status, Long id);
 }

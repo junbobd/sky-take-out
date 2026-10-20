@@ -44,4 +44,9 @@ public interface DishMapper {
 
     //根据分类id查询同类的菜品
     List<Dish> list(Dish dish);
+
+    //根据套餐id查询菜品
+    @Select("select d.* from dish d left join setmeal_dish s_d on s_d.dish_id=d.id " +
+            "where s_d.setmeal_id=#{setmealId}")
+    List<Dish> getBySetmealId(Long id);
 }
