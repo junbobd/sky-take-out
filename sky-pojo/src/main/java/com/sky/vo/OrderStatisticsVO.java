@@ -13,4 +13,8 @@ public class OrderStatisticsVO implements Serializable {
 
     //派送中数量
     private Integer deliveryInProgress;
+
+    public void setCom() {
+
+    }
 }
