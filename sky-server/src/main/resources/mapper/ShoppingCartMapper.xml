@@ -19,7 +19,9 @@
             (name, image, user_id, dish_id, setmeal_id, dish_flavor, number,amount, create_time)
         values
         <foreach collection="shoppingCartList" item="sc" separator=",">
-            (#{sc.name},#{sc.image},#{sc.userId},#{sc.dishId},#{sc.setmealId},#{dishFlavor},#{number},#{amount},#{createTime})
+            <!-- 修改：后四个字段漏写了 sc. 前缀，MyBatis 找不到参数 dishFlavor 导致报错 -->
+            <!-- 原代码：(#{sc.name},#{sc.image},#{sc.userId},#{sc.dishId},#{sc.setmealId},#{dishFlavor},#{number},#{amount},#{createTime}) -->
+            (#{sc.name},#{sc.image},#{sc.userId},#{sc.dishId},#{sc.setmealId},#{sc.dishFlavor},#{sc.number},#{sc.amount},#{sc.createTime})
         </foreach>
     </insert>
 

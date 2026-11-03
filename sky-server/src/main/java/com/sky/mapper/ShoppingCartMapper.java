@@ -4,6 +4,7 @@ import com.sky.entity.ShoppingCart;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
@@ -31,5 +32,7 @@ public interface ShoppingCartMapper {
     void deleteById(Long id);
 
     //批量插入购物车数据
-    void insertBatch(List<ShoppingCart> shoppingCartList);
+    //修改：加上 @Param，保证 XML 里 foreach 的 collection="shoppingCartList" 能找到参数（写法同 OrderDetailMapper）
+    //原代码：void insertBatch(List<ShoppingCart> shoppingCartList);
+    void insertBatch(@Param("shoppingCartList") List<ShoppingCart> shoppingCartList);
 }
