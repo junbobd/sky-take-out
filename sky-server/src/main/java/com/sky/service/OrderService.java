@@ -74,5 +74,6 @@ public interface OrderService  {
      */
     void complete(Long id);
 
-
+    //用户催单
+    void reminder(Long id);
 }
