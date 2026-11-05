@@ -46,4 +46,7 @@ public interface OrderMapper {
 
     //根据动态条件统计营业额
     Double sumByMap(Map map);
+
+    //根据动态条件统计订单数量
+    Integer countByMap(Map map);
 }
